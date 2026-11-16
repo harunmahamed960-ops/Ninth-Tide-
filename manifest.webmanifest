@@ -1,0 +1,19 @@
+{
+  "name": "Ninth Tide — The Sunken Castle",
+  "short_name": "Ninth Tide",
+  "description": "A dark fantasy mobile visual novel",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#07111c",
+  "theme_color": "#07111c",
+  "icons": [
+    {
+      "src": "./assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
