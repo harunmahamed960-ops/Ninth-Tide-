@@ -1,0 +1,14 @@
+/* Portrait-first touch refinements; import after the base stylesheet. */
+:root{--nt-safe-bottom:env(safe-area-inset-bottom,0px)}
+button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+@media(max-width:700px){
+  html,body{overscroll-behavior:none}
+  .theatre{min-height:100dvh}
+  .dialogue-wrap{padding-bottom:calc(12px + var(--nt-safe-bottom))}
+  .dialogue{max-height:min(45dvh,360px);overflow:auto}
+  .choice-area{max-height:48dvh;overflow-y:auto;overscroll-behavior:contain}
+  .choice-area button,.next,.cta{min-height:48px}
+  .modal-cover{padding-bottom:var(--nt-safe-bottom)}
+  .topbar{padding-top:env(safe-area-inset-top,0px)}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
