@@ -1,26 +1,32 @@
-# Ninth Tide Roadmap
+# Ninth Tide — Production Tracker
 
-## Milestone 1 — Repository and baseline
-- [x] Create dedicated private repository
-- [ ] Import prepared mobile development kit
-- [ ] Run automated and mobile browser tests in CI
+**Planning baseline:** 2026-11-16  
+**Target:** 2026-12-04 mobile PWA beta (estimate, contingent on tests)  
+**Current completion estimate:** 20% — prototype exists locally, but game source is not yet committed to GitHub.  
+**Measurement:** completion percentages are milestone gates, not elapsed time. Update only after acceptance criteria pass.
 
-## Milestone 2 — Visual novel experience
-- [ ] Portrait-first dialogue presentation and expressive original sprites
-- [ ] Investigation and evidence interface
-- [ ] Character-specific expressions and confrontation animations
+| Dates (2026) | Target | Milestone | Acceptance gate |
+|---|---:|---|---|
+| Nov 16–18 | 30% | Repository and source import | Game source, assets, PWA manifest, tests committed; launches from repo |
+| Nov 19–22 | 50% | Mobile visual novel UI | 360–430px touch QA, readable dialogue, sprite expressions, transitions |
+| Nov 23–26 | 75% | Narrative and gameplay | Investigations/evidence, meaningful stats, 9 reachable endings verified |
+| Nov 27–30 | 90% | Sound and polish | Browser voice fallback, opt-in sound, motion controls, performance pass |
+| Dec 1–4 | 100% | Beta release | Offline install, save/load and restore, real Android QA, no blocker bugs |
 
-## Milestone 3 — Narrative depth
-- [ ] Expand Mara, Elias, Vesper, and King character arcs
-- [ ] Make Resolve, Secrets, Tide, and relationships gate real outcomes
-- [ ] Validate nine distinct endings and reachable routes
+## Immediate actions
+- [x] Dedicated private GitHub repository
+- [x] Development instructions and project roadmap
+- [ ] Import prepared mobile development kit (currently a local ZIP; not in GitHub)
+- [ ] Add CI syntax, story graph, and save/load tests
+- [ ] Establish a stable preview build
 
-## Milestone 4 — Audio and polish
-- [ ] Ambient audio, user-selected British English narration voice
-- [ ] Accessibility, save slots, offline play, performance audits
+## Quality requirements
+- No hardcoded claims of guaranteed browser voice quality.
+- No external art dependencies at runtime; original artwork only.
+- Save format must be versioned and import/export tested.
+- Keep four lives, Resolve, Secrets, Tide, key characters, and nine distinct endings.
+- Maintain accessible keyboard and touch navigation.
+- A phase is complete only after testing and review; do not inflate progress.
 
-## Milestone 5 — Release
-- [ ] Test installable PWA on Android
-- [ ] Evaluate APK packaging after PWA quality gate
-
-Never modify Touchline or any other repository.
+## Scope
+Mobile-first web/PWA beta first. APK is optional after beta; not part of the December 4 completion gate.
