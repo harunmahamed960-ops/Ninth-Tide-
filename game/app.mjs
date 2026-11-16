@@ -3,19 +3,20 @@ import {newGame,applyEffects,serializeSave,deserializeSave} from './state.mjs';
 const $=id=>document.getElementById(id);
 const STORAGE='ninth-tide-full-slice-v2';
 let state=newGame();let inspected=new Set();
-const faces={Narrator:'🌊',You:'◈',Mara:'⚔',Cassian:'♠',Talia:'✦',Harun:'☾'};
+const portraitIds={Narrator:'narrator',You:'you',Mara:'mara',Cassian:'cassian',Talia:'talia',Harun:'harun'};
+const moodFor=(scene)=>{if(['intense','furious','defiant'].includes(scene.expression))return 'intense';if(['tense','guarded','worried'].includes(scene.expression))return 'tense';if(scene.confrontation||scene.speaker==='Mara'&&['p05','c10','c13'].includes(state.scene))return 'tense';return 'neutral';};
 const chapterNames={prologue:'PROLOGUE · THE BODY ON THE SHORE','chapter-1':'CHAPTER ONE · HARBOUR OF LOST NAMES'};
-function button(label,handler,primary=false){const el=document.createElement('button');el.textContent=label;if(primary)el.classList.add('primary');el.addEventListener('click',handler);$('actions').append(el);}
+function button(label,handler,primary=false,kind=''){const el=document.createElement('button');el.textContent=label;if(primary)el.classList.add('primary');if(kind)el.classList.add(kind);el.addEventListener('click',handler);$('actions').append(el);}
 function advance(to,effects={}){state=applyEffects(state,{...effects,scene:to,chapter:STORY[to].chapter});state.history.push(to);inspected=new Set();render();}
 function render(){const scene=STORY[state.scene];if(!scene)throw Error('Missing scene '+state.scene);
  $('chapter').textContent=chapterNames[scene.chapter]||'END OF SLICE';$('place').textContent=scene.place;
  $('stage').className='stage '+(scene.bg||'shore');$('speaker').textContent=scene.speaker;
- $('figure').textContent=faces[scene.speaker]||'◈';$('figure').classList.toggle('hidden',scene.speaker==='Narrator');
+ $('figure').src='./assets/portraits/'+(portraitIds[scene.speaker]||'narrator')+'-'+moodFor(scene)+'.svg';$('figure').alt=scene.speaker+' — '+moodFor(scene)+' expression';$('figure').classList.toggle('hidden',scene.speaker==='Narrator');
  $('dialogue').textContent=scene.text;$('stats').textContent='♥ '+state.lives+'/4 · Resolve '+state.stats.resolve+' · Secrets '+state.stats.secrets+' · Tide '+state.stats.tide;
  $('progress').textContent=state.history.length+' scene transitions';$('actions').replaceChildren();
- if(scene.investigation){for(const hotspot of scene.investigation.hotspots){button((inspected.has(hotspot.id)?'✓ ':'Examine · ')+hotspot.name,()=>inspect(hotspot));}
+ if(scene.investigation){for(const hotspot of scene.investigation.hotspots){button((inspected.has(hotspot.id)?'✓ ':'Examine · ')+hotspot.name,()=>inspect(hotspot),false,'inspect-choice');}
   const ready=scene.investigation.required.every(id=>inspected.has(id));if(ready)button('Conclude investigation →',()=>advance(scene.investigation.next),true);
- }else if(scene.confrontation){const owned=scene.confrontation.options.filter(id=>state.evidence.includes(id));for(const id of owned)button('Present · '+EVIDENCE[id].name,()=>present(scene.confrontation,id));}
+ }else if(scene.confrontation){const owned=scene.confrontation.options.filter(id=>state.evidence.includes(id));for(const id of owned)button('Present evidence · '+EVIDENCE[id].name,()=>present(scene.confrontation,id),false,'evidence-choice');}
  else if(scene.choices){for(const choice of scene.choices){if(choice.requiresEvidence&&!state.evidence.includes(choice.requiresEvidence))continue;button(choice.label,()=>advance(choice.to,choice.effects));}}
  else if(scene.next){button('Continue →',()=>advance(scene.next),true);}
  else if(scene.endOfSlice){button('Restart the story',()=>{state=newGame();inspected=new Set();render();},true);}
