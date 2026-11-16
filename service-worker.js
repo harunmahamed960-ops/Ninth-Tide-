@@ -1,6 +1,6 @@
 /* Offline shell for Ninth Tide. Bump cache version on each release. */
-const CACHE = 'ninth-tide-v2';
-const SHELL = ['./', './index.html', './manifest.webmanifest', './assets/icon.svg'];
+const CACHE = 'ninth-tide-v3';
+const SHELL = ['./', './index.html', './manifest.webmanifest', './assets/icon.svg', './play.html', './game/app.mjs', './game/schema.mjs', './game/state.mjs', './game/story/vertical-slice.mjs'];
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', event => {
