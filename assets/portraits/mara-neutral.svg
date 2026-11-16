@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="450" viewBox="0 0 360 450" role="img" aria-label="mara neutral expression">
+<!-- ORIGINAL GRAPHIC SPRITE: solid fills, no gradients, no filters, bold uniform black contour. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+<path d="M12 450Q24 345 116 312L147 304H215L245 312Q339 350 349 450Z" fill="#283c5a" stroke="#07080b" stroke-width="15"/>
+<path d="M112 321L178 400L248 321L217 304H145Z" fill="#d5ad63" stroke="#07080b" stroke-width="11"/>
+<path d="M151 271V320Q180 345 209 320V271Z" fill="#e1ad82" stroke="#07080b" stroke-width="11"/>
+<path d="M94 161Q92 85 180 82Q268 85 266 161L257 236Q236 302 180 305Q124 302 103 236Z" fill="#e1ad82" stroke="#07080b" stroke-width="13"/>
+<path d="M99 189Q79 174 81 201Q84 224 107 223M262 189Q282 174 279 201Q276 224 254 223" fill="#e1ad82" stroke="#07080b" stroke-width="9"/>
+<path d="M74 165Q45 73 141 48Q240 15 285 127L275 182Q258 129 230 105Q194 155 98 157Z" fill="#202332" stroke="#07080b" stroke-width="12"/>
+<path d="M118 178L160 177M200 177L242 178" stroke="#07080b" stroke-width="10"/>
+<path d="M120 206Q140 199 159 206M201 206Q221 199 240 206" fill="none" stroke="#07080b" stroke-width="9"/><circle cx="141" cy="208" r="7" fill="#253c4d"/><circle cx="219" cy="208" r="7" fill="#253c4d"/>
+<path d="M180 213L173 239L185 242" fill="none" stroke="#07080b" stroke-width="7"/>
+<path d="M158 258Q181 270 204 258" fill="none" stroke="#07080b" stroke-width="8"/>
+<path d="M42 450L90 345L127 380M319 450L271 345L234 380" fill="none" stroke="#07080b" stroke-width="13"/>
+<path d="M45 448L92 348L118 373M315 448L269 348L242 373" fill="none" stroke="#d5ad63" stroke-width="8"/>
+</g></svg>
