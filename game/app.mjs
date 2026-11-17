@@ -5,7 +5,9 @@ const $=id=>document.getElementById(id);
 const STORAGE='ninth-tide-full-slice-v2';
 let state=newGame();let inspected=new Set();
 const portraitIds={Narrator:'narrator',You:'you',Mara:'mara',Cassian:'cassian',Talia:'talia',Harun:'harun'};
-const moodFor=(scene)=>{if(['p01','p03','c07','c13'].includes(state.scene))return 'intense';if(['p06','c03','c04','c08','c11'].includes(state.scene))return 'tense';if(['intense','furious','defiant'].includes(scene.expression))return 'intense';if(['tense','guarded','worried'].includes(scene.expression))return 'tense';if(scene.confrontation||scene.speaker==='Mara'&&['p05','c10','c13'].includes(state.scene))return 'tense';return 'neutral';};
+const moodFor=(scene)=>{if(['p01','p03','c06','c07','c13'].includes(state.scene))return 'intense';if(['p06','c03','c04','c08','c10','c11'].includes(state.scene))return 'tense';if(['intense','furious','defiant'].includes(scene.expression))return 'intense';if(['tense','guarded','worried'].includes(scene.expression))return 'tense';if(scene.confrontation||scene.speaker==='Mara'&&['p05','c10','c13'].includes(state.scene))return 'tense';return 'neutral';};
+// Preload all expression frames so emotional changes don't wait for a network fetch.
+for(const id of Object.values(portraitIds))for(const mood of ['neutral','tense','intense']){const image=new Image();image.src='./assets/portraits/'+id+'-'+mood+'.svg';}
 const chapterNames={prologue:'PROLOGUE · THE BODY ON THE SHORE','chapter-1':'CHAPTER ONE · HARBOUR OF LOST NAMES'};
 function button(label,handler,primary=false,kind=''){const el=document.createElement('button');el.textContent=label;if(primary)el.classList.add('primary');if(kind)el.classList.add(kind);el.addEventListener('click',handler);$('actions').append(el);}
 function advance(to,effects={}){state=applyEffects(state,{...effects,scene:to,chapter:STORY[to].chapter});state.history.push(to);inspected=new Set();render();}
@@ -26,7 +28,7 @@ function inspect(hotspot){if(!inspected.has(hotspot.id)){inspected.add(hotspot.i
 function present(confrontation,id){if(id===confrontation.correct){advance(confrontation.success,{relationships:{talia:{trust:1}},flags:{solved_ledger_contradiction:true}});}else{state=applyEffects(state,{relationships:{talia:{suspicion:1}},flags:{wrong_ledger_accusation:true}});advance(confrontation.failure);}}
 function showModal(title,description){$('drawerTitle').textContent=title;$('drawerBody').replaceChildren();const p=document.createElement('p');p.textContent=description;$('drawerBody').append(p);$('drawer').classList.remove('hidden');$('closeDrawer').focus();}
 function journal(){const wrap=document.createElement('div');for(const id of state.evidence){const e=EVIDENCE[id];if(!e)continue;const item=document.createElement('div');item.className='evidence';const strong=document.createElement('strong');strong.textContent=e.name+' · '+e.type;const p=document.createElement('p');p.className='note';p.textContent=e.description;item.append(strong,p);wrap.append(item);}if(!state.evidence.length){const p=document.createElement('p');p.textContent='No evidence collected yet.';wrap.append(p);}$('drawerTitle').textContent='Evidence Journal';$('drawerBody').replaceChildren(wrap);$('drawer').classList.remove('hidden');$('closeDrawer').focus();}
-$('audio').addEventListener('click',async()=>{const on=await toggleAmbience();$('audio').textContent=on?'Sound: On':'Sound: Off';$('audio').setAttribute('aria-pressed',String(on));});
+$('audio').addEventListener('click',async()=>{try{const on=await toggleAmbience();$('audio').textContent=on?'Sound: On':'Sound: Off';$('audio').setAttribute('aria-pressed',String(on));}catch{$('audio').textContent='Sound unavailable';}});
 $('journal').addEventListener('click',journal);
 $('closeDrawer').addEventListener('click',()=>$('drawer').classList.add('hidden'));
 $('drawer').addEventListener('click',e=>{if(e.target===$('drawer'))$('drawer').classList.add('hidden');});
