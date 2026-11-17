@@ -2,7 +2,7 @@ import {CHARACTERS,CHAPTERS,ENDINGS} from './schema.mjs';
 export const SAVE_VERSION=2;
 const clamp=(n,min=-99,max=99)=>Math.max(min,Math.min(max,n));
 export function newGame(){
- return {version:SAVE_VERSION,chapter:CHAPTERS[0].id,scene:'p00_wake',lives:4,
+ return {version:SAVE_VERSION,chapter:CHAPTERS[0].id,scene:'p00',lives:4,
   stats:{resolve:0,secrets:0,tide:0},
   relationships:Object.fromEntries(CHARACTERS.map(c=>[c.id,{trust:0,suspicion:0,loyalty:0}])),
   inventory:[],evidence:[],claims:[],flags:{},history:[],ending:null};
