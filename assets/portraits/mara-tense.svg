@@ -1,16 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="450" viewBox="0 0 360 450" role="img" aria-label="mara tense expression">
-<!-- ORIGINAL GRAPHIC SPRITE: solid fills, no gradients, no filters, bold uniform black contour. -->
-<g stroke-linejoin="round" stroke-linecap="round">
-<path d="M12 450Q24 345 116 312L147 304H215L245 312Q339 350 349 450Z" fill="#283c5a" stroke="#07080b" stroke-width="15"/>
-<path d="M112 321L178 400L248 321L217 304H145Z" fill="#d5ad63" stroke="#07080b" stroke-width="11"/>
-<path d="M151 271V320Q180 345 209 320V271Z" fill="#e1ad82" stroke="#07080b" stroke-width="11"/>
-<path d="M94 161Q92 85 180 82Q268 85 266 161L257 236Q236 302 180 305Q124 302 103 236Z" fill="#e1ad82" stroke="#07080b" stroke-width="13"/>
-<path d="M99 189Q79 174 81 201Q84 224 107 223M262 189Q282 174 279 201Q276 224 254 223" fill="#e1ad82" stroke="#07080b" stroke-width="9"/>
-<path d="M74 165Q45 73 141 48Q240 15 285 127L275 182Q258 129 230 105Q194 155 98 157Z" fill="#202332" stroke="#07080b" stroke-width="12"/>
-<path d="M117 185L158 179M201 179L244 185" stroke="#07080b" stroke-width="12"/>
-<path d="M120 209Q140 198 159 208M201 208Q220 198 240 209" fill="none" stroke="#07080b" stroke-width="10"/><circle cx="142" cy="210" r="7" fill="#253c4d"/><circle cx="219" cy="210" r="7" fill="#253c4d"/>
-<path d="M180 213L173 239L185 242" fill="none" stroke="#07080b" stroke-width="7"/>
-<path d="M154 263L205 257" stroke="#07080b" stroke-width="10"/><path d="M110 242L125 245M236 245L251 242" stroke="#845a4c" stroke-width="5"/>
-<path d="M42 450L90 345L127 380M319 450L271 345L234 380" fill="none" stroke="#07080b" stroke-width="13"/>
-<path d="M45 448L92 348L118 373M315 448L269 348L242 373" fill="none" stroke="#d5ad63" stroke-width="8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 450" width="360" height="450" role="img" aria-label="mara tense dramatic portrait"><g stroke-linejoin="round" stroke-linecap="round">
+<path d="M0 450Q20 344 112 310L144 301H215L246 312Q341 350 360 450Z" fill="#29384d" stroke="#08090e" stroke-width="15"/>
+<path d="M27 448Q46 360 115 323L130 450Z" fill="#536e82" stroke="#08090e" stroke-width="10"/><path d="M332 448Q312 360 245 323L230 450Z" fill="#536e82" stroke="#08090e" stroke-width="10"/>
+<path d="M115 314L179 397L247 314L214 299H147Z" fill="#d2b17b" stroke="#08090e" stroke-width="10"/>
+<path d="M146 267L145 319Q179 344 214 319L209 266Z" fill="#d7a079" stroke="#08090e" stroke-width="11"/>
+<path d="M92 162Q89 83 179 77Q273 82 267 166L255 239Q231 305 180 308Q129 304 104 238Z" fill="#d7a079" stroke="#08090e" stroke-width="13"/>
+<path d="M98 186Q76 176 80 203Q84 228 108 225M263 186Q285 176 280 203Q276 228 253 225" fill="#d7a079" stroke="#08090e" stroke-width="9"/>
+<path d="M108 227L126 241L139 260L122 246Z" fill="#a86b55"/><path d="M252 225L233 243L220 262L240 245Z" fill="#a86b55"/><path d="M176 212L168 239L189 244L180 250Z" fill="#a86b55"/>
+<path d="M80 179Q52 82 113 49Q169 11 246 51Q280 72 284 153L266 195L248 126Q223 111 212 91Q172 149 93 156Z" fill="#25232e" stroke="#08090e" stroke-width="11"/><path d="M114 91Q151 58 215 75L183 112L134 126Z" fill="#454052" stroke="#08090e" stroke-width="7"/><path d="M111 181L161 174M200 174L249 181" fill="none" stroke="#08090e" stroke-width="10"/><path d="M113 203Q137 196 163 203L155 221L123 220ZM197 203Q223 196 247 203L237 220L205 221Z" fill="#f6f1dd" stroke="#08090e" stroke-width="8"/>
+<path d="M121 209L160 209M201 209L241 209" stroke="#08090e" stroke-width="5"/>
+<ellipse cx="142" cy="210" rx="8" ry="10" fill="#52758a" stroke="#08090e" stroke-width="3"/><ellipse cx="219" cy="210" rx="8" ry="10" fill="#52758a" stroke="#08090e" stroke-width="3"/>
+<circle cx="144" cy="207" r="3" fill="#fff"/><circle cx="221" cy="207" r="3" fill="#fff"/>
+<path d="M179 213L173 240L185 243" stroke="#08090e" stroke-width="6" fill="none"/>
+<path d="M153 261L206 255" stroke="#08090e" stroke-width="9" fill="none"/><path d="M223 226L239 249" stroke="#9a574b" stroke-width="7"/>
+
+<path d="M35 449L98 347L136 384M325 449L262 347L225 384" fill="none" stroke="#08090e" stroke-width="12"/>
 </g></svg>
