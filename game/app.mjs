@@ -8,14 +8,14 @@ if(!STORY[state.scene]){console.warn('Unknown initial scene, recovering to p00')
 const portraitIds={Narrator:'narrator',You:'you',Mara:'mara',Cassian:'cassian',Talia:'talia',Harun:'harun'};
 const moodFor=(scene)=>{if(['p01','p03','c06','c07','c13'].includes(state.scene))return 'intense';if(['p06','c03','c04','c08','c10','c11'].includes(state.scene))return 'tense';if(['intense','furious','defiant'].includes(scene.expression))return 'intense';if(['tense','guarded','worried'].includes(scene.expression))return 'tense';if(scene.confrontation||scene.speaker==='Mara'&&['p05','c10','c13'].includes(state.scene))return 'tense';return 'neutral';};
 // Preload all expression frames so emotional changes don't wait for a network fetch.
-for(const id of Object.values(portraitIds))for(const mood of ['neutral','tense','intense']){const image=new Image();image.src='./assets/portraits/'+id+'-'+mood+'.svg';}
+for(const id of Object.values(portraitIds))for(const mood of ['neutral','tense','intense']){const image=new Image();image.src='./assets/portraits/'+id+'-'+mood+'.svg?v=7';}
 const chapterNames={prologue:'PROLOGUE · THE BODY ON THE SHORE','chapter-1':'CHAPTER ONE · HARBOUR OF LOST NAMES'};
 function button(label,handler,primary=false,kind=''){const el=document.createElement('button');el.textContent=label;if(primary)el.classList.add('primary');if(kind)el.classList.add(kind);el.addEventListener('click',handler);$('actions').append(el);}
 function advance(to,effects={}){state=applyEffects(state,{...effects,scene:to,chapter:STORY[to].chapter});state.history.push(to);inspected=new Set();render();}
 function render(){const scene=STORY[state.scene];if(!scene)throw Error('Missing scene '+state.scene);
  $('chapter').textContent=chapterNames[scene.chapter]||'END OF SLICE';$('place').textContent=scene.place;
  $('stage').className='stage '+(scene.bg||'shore');$('speaker').textContent=scene.speaker;
- $('figure').src='./assets/portraits/'+(portraitIds[scene.speaker]||'narrator')+'-'+moodFor(scene)+'.svg';$('figure').alt=scene.speaker+' — '+moodFor(scene)+' expression';$('figure').classList.toggle('hidden',scene.speaker==='Narrator'||scene.speaker==='You'&&['p02'].includes(state.scene));
+ $('figure').src='./assets/portraits/'+(portraitIds[scene.speaker]||'narrator')+'-'+moodFor(scene)+'.svg?v=7';$('figure').alt=scene.speaker+' — '+moodFor(scene)+' expression';$('figure').classList.toggle('hidden',scene.speaker==='Narrator'||scene.speaker==='You'&&['p02'].includes(state.scene));
  setSceneAmbience(scene,state.scene);$('stage').dataset.mood=moodFor(scene);$('dialogue').textContent=scene.text;$('stats').textContent='♥ '+state.lives+'/4 · Resolve '+state.stats.resolve+' · Secrets '+state.stats.secrets+' · Tide '+state.stats.tide;
  $('progress').textContent=state.history.length+' scene transitions';$('actions').replaceChildren();
  if(scene.investigation){for(const hotspot of scene.investigation.hotspots){button((inspected.has(hotspot.id)?'✓ ':'Examine · ')+hotspot.name,()=>inspect(hotspot),false,'inspect-choice');}
