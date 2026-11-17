@@ -45,4 +45,35 @@ header strong{font-size:clamp(18px,3vw,27px);font-weight:950;text-shadow:3px 3px
 #audio{border-color:#d9bd76;min-width:92px}
 @media(max-width:600px){.stage{min-height:clamp(350px,49dvh,530px)}.figure{height:115%;bottom:-12%}.stage[data-mood="intense"] .figure{height:121%;bottom:-15%}.panel{padding:24px 15px 19px}.speaker{font-size:clamp(22px,6vw,30px)}.dialogue{font-size:19px;min-height:75px}.actions button{font-size:15px;padding:13px 12px}}
 @media(max-height:650px) and (min-width:650px){.stage{min-height:320px}.figure{height:112%}}
+/* Phone stability and character focus */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+.app{width:100%;min-width:0}
+header{min-width:0}
+.tools{min-width:0;justify-content:flex-end}
+.stage{flex:0 0 auto;height:clamp(360px,52dvh,660px);min-height:0;max-width:100%;background-clip:padding-box}
+.stage:before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 45% 65% at 50% 52%,transparent 5%,#03060b77 100%);z-index:1;pointer-events:none}
+.figure{z-index:2;height:115%;bottom:-11%;max-width:100%;object-fit:contain}
+.panel{min-width:0;margin-bottom:8px}
+.speaker{max-width:calc(100% - 18px);overflow-wrap:anywhere}
+.dialogue{overflow-wrap:break-word}
+.actions{min-width:0}
+.actions button{width:100%;max-width:100%;overflow-wrap:anywhere;white-space:normal}
+.hud{min-width:0}
+@media(max-width:480px){
+.app{padding:6px 7px calc(10px + env(safe-area-inset-bottom))}
+header{padding:8px 9px;gap:8px}
+header strong{font-size:17px;letter-spacing:.08em}
+.tools{gap:4px}
+.tools button{font-size:11px;min-height:38px;padding:7px 8px}
+.stage{height:clamp(330px,46dvh,490px);min-height:0}
+.figure{height:114%;bottom:-11%;max-width:100%}
+.stage[data-mood="intense"] .figure{height:120%;bottom:-14%}
+.stage[data-mood="tense"] .figure{height:117%}
+.place{font-size:10px;max-width:75%;letter-spacing:.08em}
+.panel{padding:24px 12px 17px}
+.dialogue{font-size:18px;line-height:1.5}
+.actions button{min-height:48px}
+.hud{font-size:11px;gap:5px}
+}
+@media(max-width:380px){.stage{height:clamp(300px,43dvh,420px)}header strong{width:100%}.tools{width:100%;justify-content:space-between}.tools button{flex:1;padding:7px 3px}}
 </style></head><body><div class="app"><header><strong>Ⅸ · NINTH TIDE</strong><div class="tools"><button id="audio" aria-pressed="false" title="Toggle atmospheric audio">Sound: Off</button><button id="journal">Evidence</button><button id="save">Save</button><button id="load">Load</button><button id="reset">Restart</button></div></header><div class="hud"><span id="chapter" class="chapter"></span><span id="stats"></span></div><main class="stage" id="stage" aria-label="Story scene"><svg class="architecture" aria-hidden="true" viewBox="0 0 800 430" preserveAspectRatio="xMidYMax meet"><path d="M75 430V290H125V235H154V290H190V176H224V132H244V176H280V250H324V103H344V65H365V103H398V200H431V120H457V76H479V120H506V248H560V184H592V149H614V184H645V285H680V228H706V285H748V430Z" fill="#101c2b" stroke="#020408" stroke-width="14"/><path d="M354 430V338Q360 292 400 292Q441 292 446 338V430" fill="#03070e" stroke="#020408" stroke-width="10"/><path d="M105 319h27v46h-27zm105-102h28v46h-28zm133-62h29v54h-29zm108 14h30v49h-30zm136 61h27v48h-27z" fill="#b7c7c2" stroke="#030507" stroke-width="8"/><path d="M0 405Q180 388 350 411T800 402" stroke="#58a1ad" stroke-width="13" fill="none"/></svg><div class="place" id="place"></div><img class="figure" id="figure" alt="" src="./assets/portraits/narrator-neutral.svg"></main><section class="panel"><div class="speaker" id="speaker"></div><p class="dialogue" id="dialogue" aria-live="polite"></p><div class="actions" id="actions"></div></section><div class="hud"><span>Prologue + Chapter 1 · Narrative vertical slice</span><span id="progress"></span></div></div><div class="drawer hidden" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle"><div class="modal"><h2 id="drawerTitle">Evidence Journal</h2><div id="drawerBody"></div><button id="closeDrawer">Close</button></div></div><script type="module" src="./game/app.mjs"></script></body></html>
