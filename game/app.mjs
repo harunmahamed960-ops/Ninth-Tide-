@@ -4,6 +4,7 @@ import {newGame,applyEffects,serializeSave,deserializeSave} from './state.mjs';
 const $=id=>document.getElementById(id);
 const STORAGE='ninth-tide-full-slice-v2';
 let state=newGame();let inspected=new Set();
+if(!STORY[state.scene]){console.warn('Unknown initial scene, recovering to p00');state.scene='p00';}
 const portraitIds={Narrator:'narrator',You:'you',Mara:'mara',Cassian:'cassian',Talia:'talia',Harun:'harun'};
 const moodFor=(scene)=>{if(['p01','p03','c06','c07','c13'].includes(state.scene))return 'intense';if(['p06','c03','c04','c08','c10','c11'].includes(state.scene))return 'tense';if(['intense','furious','defiant'].includes(scene.expression))return 'intense';if(['tense','guarded','worried'].includes(scene.expression))return 'tense';if(scene.confrontation||scene.speaker==='Mara'&&['p05','c10','c13'].includes(state.scene))return 'tense';return 'neutral';};
 // Preload all expression frames so emotional changes don't wait for a network fetch.
