@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {newGame} from '../game/state.mjs';import {STORY} from '../game/story/vertical-slice.mjs';test('new game boots into an authored scene with dialogue',()=>{const state=newGame();assert.ok(STORY[state.scene],state.scene);assert.ok(STORY[state.scene].text.length>10);assert.equal(state.scene,'p00');});
