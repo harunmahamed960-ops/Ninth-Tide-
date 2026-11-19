@@ -1,6 +1,8 @@
-// Ninth Tide: authored Prologue + Chapter 1 vertical slice.
+import {CHAPTER_TWO,CHAPTER_TWO_EVIDENCE} from './chapter-two.mjs';
+// Ninth Tide: authored Prologue, Chapter 1 and Chapter 2.
 // Scene text and branching decisions are original. End of slice is not a game ending.
 export const STORY={
+...CHAPTER_TWO,
 p00:{chapter:'prologue',place:'THE SHORE / BEFORE DAWN',bg:'shore',speaker:'Narrator',expression:'still',text:'The sea has forgotten how to move. It lies beneath the cliffs like black glass, reflecting a castle that should not exist. Somewhere within it, a bell tolls nine times. On the ninth, you open your eyes.',next:'p01'},
 p01:{chapter:'prologue',place:'THE SHORE / BEFORE DAWN',bg:'shore',speaker:'Narrator',text:'Your coat is wet. Your mouth tastes of iron. On the sand beside you lies a body wearing your face. The dead hand clutches a paper sealed with the royal crest.',next:'p02'},
 p02:{chapter:'prologue',place:'THE SHORE / BEFORE DAWN',bg:'shore',speaker:'You',text:'There is a moment in which the sensible thing would be to scream. You discover that you are considering several alternatives.',choices:[
@@ -53,9 +55,10 @@ c10:{chapter:'chapter-1',place:'CUSTOMS OFFICE',bg:'office',speaker:'Mara',text:
 c11:{chapter:'chapter-1',place:'HARBOUR OF LOST NAMES',bg:'harbour',speaker:'Cassian',text:'Cassian weighs the ledger page without touching it. “Thirteen passengers,” he says softly. “And twelve names. That is not a mistake. That is a method.” He gives you the brass token.',next:'c12'},
 c12:{chapter:'chapter-1',place:'HARBOUR OF LOST NAMES',bg:'harbour',speaker:'Narrator',text:'At the gate, the token fits. The castle opens like a wound. Beyond it, music spills from a theatre that has been underwater for a century. Someone is applauding, very slowly.',next:'c13'},
 c13:{chapter:'chapter-1',place:'THE CASTLE GATE',bg:'gate',speaker:'Mara',text:'“There’s something I should have told you on the shore.” Her voice catches. “The body you found was not the first one. I buried you three times.”',next:'slice_end'},
-slice_end:{chapter:'chapter-1',place:'END OF VERTICAL SLICE',bg:'gate',speaker:'Narrator',text:'The first bell rings. The next chapter is The Masquerade Murder. Your evidence, relationships, and choices will carry forward. This is the end of the playable Prologue + Chapter 1 slice—not an ending of Ninth Tide.',endOfSlice:true}
+slice_end:{chapter:'chapter-1',place:'THE CASTLE GATE',bg:'gate',speaker:'Narrator',text:'The first bell rings. Beyond the doors, a theatre prepares for its final performance. The words Mara has spoken cannot be taken back. The masquerade is about to begin.',next:'m01'}
 };
 export const EVIDENCE={
+...CHAPTER_TWO_EVIDENCE,
 royal_warrant:{name:'Royal death warrant',type:'document',description:'Orders an unnamed execution at the ninth bell. Bears your signature.'},
 matching_scar:{name:'Matching crescent scars',type:'physical',description:'Your wrist and the corpse bear the same scar.'},
 ninth_bell_echo:{name:'Ninth bell echo',type:'memory',description:'The ninth toll came from behind the shore.'},
