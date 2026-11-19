@@ -1,4 +1,4 @@
-import {STORY,EVIDENCE} from './story/vertical-slice.mjs';
+import {STORY,EVIDENCE} from './story/vertical-slice.mjs?v=10';
 import {newGame,applyEffects,serializeSave,deserializeSave} from './state.mjs';
 const $=id=>document.getElementById(id);
 const STORAGE='ninth-tide-full-slice-v2';
